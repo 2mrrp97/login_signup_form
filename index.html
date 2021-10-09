@@ -73,8 +73,8 @@
             <input id="signup_pass" name='pass' maxlength="30" type="password"
                 class="signupinputs form-control inputFields mt-4" id="pass" placeholder="Enter your password">
 
-            <div id="pwdstrInfo" class="form-text text-danger invisible"><strong>Password must contain atleast one
-                    uppercase character</strong></div>
+            <div id="pwdstrInfo" class="form-text text-danger invisible"><strong>Warning : Password should contain
+                    atleast one uppercase character</strong></div>
             <div class="form-text text-light">We'll never share your credentials with
                 anyone else.
             </div>
@@ -149,8 +149,8 @@
 
 
     submitBtn_signup.addEventListener('mouseover', () => {
-        if (signup_uname.value == "" || signup_email.value == "" || signup_pass.value == "" || confirm_pass.value == ""
-            || (signup_pass.value != confirm_pass.value)) {
+        if ((signup_uname.value == "" || signup_email.value == "" || signup_pass.value == "" || confirm_pass.value == ""
+            || signup_pass.value != confirm_pass.value)) {
             blank_prompt_signup.classList.remove('invisible');
             submitBtn_signup.disabled = true;
         }
