@@ -73,6 +73,8 @@
             <input id="signup_pass" name='pass' maxlength="30" type="password"
                 class="signupinputs form-control inputFields mt-4" id="pass" placeholder="Enter your password">
 
+            <div id="pwdstrInfo" class="form-text text-danger invisible"><strong>Password must contain atleast one
+                    uppercase character</strong></div>
             <div class="form-text text-light">We'll never share your credentials with
                 anyone else.
             </div>
@@ -163,6 +165,29 @@
         })
     });
 
+
+    function password_strength_checker() {
+        var str = signup_pass.value;
+        if (str == "")
+            return true;
+
+        var hasnum = false, hasup = false;
+        for (let i = 0; i < str.length; i++) {
+            let c = str.charAt(i);
+            if (c == c.toUpperCase(i))
+                hasup = true;
+        }
+        return hasup;
+    }
+
+    signup_pass.addEventListener('input', () => {
+        if (password_strength_checker()) {
+            pwdstrInfo.classList.add('invisible');
+        }
+        else {
+            pwdstrInfo.classList.remove('invisible');
+        }
+    })
 </script>
 
 </html>
